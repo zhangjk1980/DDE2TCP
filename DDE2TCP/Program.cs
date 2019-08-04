@@ -7,8 +7,21 @@ namespace DDE2TCP
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main (string[] args)
         {
+            try
+            {
+                KktDdeClient.RunDdeClient();
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.GetBaseException().Message);
+
+            }
+            finally
+            {
+                Console.ReadKey();
+            }
         }
     }
 }
